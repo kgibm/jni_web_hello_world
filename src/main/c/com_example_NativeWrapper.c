@@ -8,7 +8,7 @@ JNIEXPORT jstring JNICALL Java_com_example_NativeWrapper_testNativeMethod(JNIEnv
   printf("Hello World from C: \"%s\", len: %d\n", nativeString, strlen(nativeString));
   fflush(stdout);
   if (strcmp(nativeString, "test") == 0) {
-    void *p = NULL;
+    int *p = NULL;
     printf("Printing nonsense value: %d", *p);
 	fflush(stdout);
   }
