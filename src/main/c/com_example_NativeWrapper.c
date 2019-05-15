@@ -7,11 +7,10 @@ JNIEXPORT jstring JNICALL Java_com_example_NativeWrapper_testNativeMethod(JNIEnv
   const char *nativeString = (*env)->GetStringUTFChars(env, s, 0);
   printf("Hello World from C: \"%s\", len: %d\n", nativeString, strlen(nativeString));
   fflush(stdout);
-  printf("Comparison: %d\n", strcmp(nativeString, "test"));
-  fflush(stdout);
   if (strcmp(nativeString, "test") == 0) {
-    const char *p = 0;
-    printf("Printing nonsense value: %s", p);
+    void *p = NULL;
+    printf("Printing nonsense value: %d", *p);
+	fflush(stdout);
   }
   (*env)->ReleaseStringUTFChars(env, s, nativeString);
   return s;
