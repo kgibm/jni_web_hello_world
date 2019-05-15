@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/test")
-public class Simple extends HttpServlet
+@WebServlet("/jniwrapper")
+public class JNIWrapper extends HttpServlet
 {
     private static final long serialVersionUID = -4514173519833365614L;
 
-    private static final Logger logger = Logger.getLogger(Simple.class.getName());
+    private static final Logger logger = Logger.getLogger(JNIWrapper.class.getName());
 
     @Override
     protected void service(final HttpServletRequest request, final HttpServletResponse response)
@@ -24,17 +24,17 @@ public class Simple extends HttpServlet
     {
         if (logger.isLoggable(Level.FINER))
         {
-            logger.entering(Simple.class.getName(), "service", new Object[] { request, response });
+            logger.entering(JNIWrapper.class.getName(), "service", new Object[] { request, response });
         }
 
         PrintWriter out = response.getWriter();
         out.println("Hello World @ " + new java.util.Date());
 
-        out.println("\nJNI result: " + NativeWrapper.testNativeMethod(request.getParameter("test")));
+        out.println("\nJNI result: " + NativeWrapper.testNativeMethod(request.getParameter("str")));
 
         if (logger.isLoggable(Level.FINER))
         {
-            logger.exiting(Simple.class.getName(), "service");
+            logger.exiting(JNIWrapper.class.getName(), "service");
         }
     }
 }
