@@ -5,7 +5,7 @@
 
 JNIEXPORT jstring JNICALL Java_com_example_NativeWrapper_testNativeMethod(JNIEnv *env, jclass c, jstring s) {
   const char *nativeString = (*env)->GetStringUTFChars(env, s, 0);
-  printf("Hello World from C! %s\n", nativeString);
+  printf("Hello World from C: \"%s\", len: %s\n", nativeString, strlen(nativeString));
   fflush(stdout);
   if (strcmp(nativeString, "test") == 0) {
     const char *p = 0;
