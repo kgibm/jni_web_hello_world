@@ -10,7 +10,6 @@ JNIEXPORT jstring JNICALL Java_com_example_NativeWrapper_testNativeMethod(JNIEnv
   if (strcmp(nativeString, "test") == 0) {
     int *p = NULL;
     printf("Printing nonsense value: %d", *p);
-	fflush(stdout);
   }
   (*env)->ReleaseStringUTFChars(env, s, nativeString);
   return s;
