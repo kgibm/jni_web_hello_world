@@ -12,7 +12,9 @@ JNIEXPORT jstring JNICALL Java_com_example_NativeWrapper_testNativeMethod(JNIEnv
   if (strcmp(nativeString, "test") == 0) {
     int *p = NULL;
     printf("Printing nonsense value: %d", *p);
-  } else if (strcmp(nativeString, "nativemem") == 0) {    
+  } else if (strcmp(nativeString, "nativemem") == 0) {
+    // The start address is just a suggestion, so if there's no space there,
+    // it will usually go much higher into the virtual address space.
     void *p = mmap((void*)0x10000000, 0x60000000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
     if (p) {
       printf("Allocated mmap %p\n", p);
