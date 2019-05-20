@@ -13,7 +13,7 @@ JNIEXPORT jstring JNICALL Java_com_example_NativeWrapper_testNativeMethod(JNIEnv
     int *p = NULL;
     printf("Printing nonsense value: %d", *p);
   } else if (strcmp(nativeString, "nativemem") == 0) {    
-    void *p = mmap((void*)0x10000000, 0xA0000000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
+    void *p = mmap((void*)0x10000000, 0x60000000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
     if (p) {
       printf("Allocated mmap %p\n", p);
       fflush(stdout);
