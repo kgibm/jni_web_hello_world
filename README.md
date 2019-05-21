@@ -5,7 +5,9 @@
 
 ## Compile JNI
 
-    gcc -g -shared -o libNativeWrapper.so -I${JAVA_HOME}/include/ -I${JAVA_HOME}/include/linux/ com_example_NativeWrapper.c
+Linux
+
+    gcc -g -shared -fPIC -o libNativeWrapper.so -I${JAVA_HOME}/include/ -I${JAVA_HOME}/include/linux/ com_example_NativeWrapper.c
 
 ## Run
 
